@@ -3,430 +3,386 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#090c15">
-<title>MERCA — Discover Something Exceptional</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#090c14">
+<title>MERCA | Premium Digital Store</title>
 <style>
 :root {
-  --bg:#090c15;
-  --surface:#111725;
-  --surface2:#171f30;
-  --line:rgba(190,205,255,.10);
-  --muted:#929bb1;
-  --white:#f6f7fc;
-  --cyan:#50d9ed;
-  --purple:#9067ff;
+  --bg:#090c14;
+  --panel:#141b29;
+  --panel2:#1b2434;
+  --line:rgba(190,205,235,.10);
+  --muted:#929caf;
+  --white:#f5f6fb;
+  --cyan:#50d9e8;
+  --purple:#8958f5;
 }
 * {box-sizing:border-box}
 body {
-  margin:0;
-  background:var(--bg);
-  color:var(--white);
+  margin:0;background:var(--bg);color:var(--white);
   font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  min-height:100vh;
 }
 button,input {font:inherit}
 button {cursor:pointer}
 .app {
-  width:100%;
-  max-width:560px;
-  min-height:100vh;
-  margin:auto;
-  padding-bottom:110px;
+  max-width:520px;margin:auto;min-height:100vh;
+  padding-bottom:100px;
   background:
-    radial-gradient(ellipse at 90% 0%,rgba(57,93,151,.13),transparent 35%),
+    radial-gradient(ellipse at 100% 0%,rgba(48,80,137,.12),transparent 32%),
     var(--bg);
 }
 header {
-  padding:24px 21px 15px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  padding:20px 20px 12px;
+  display:flex;align-items:center;justify-content:space-between;
 }
-.logo {
-  font-size:25px;
-  font-weight:850;
-  letter-spacing:3px;
-}
+.logo {font-size:23px;font-weight:850;letter-spacing:2.5px}
 .logo span {color:var(--cyan)}
-.header-actions {display:flex;gap:10px}
-.round-btn {
-  width:43px;height:43px;
+.actions {display:flex;gap:9px}
+.circle {
+  width:41px;height:41px;border-radius:50%;
   border:1px solid var(--line);
-  border-radius:50%;
-  background:linear-gradient(145deg,#1c2638,#111725);
-  color:white;font-size:18px;
+  background:#171e2c;color:white;font-size:19px;
 }
-main {padding:15px 20px 25px}
-.eyebrow {
-  color:#9ca8c0;
-  font-size:13px;
-  letter-spacing:1.3px;
-  margin-bottom:7px;
+main {padding:12px 18px 30px}
+.topline {color:#a1abc0;font-size:13px;margin-bottom:5px}
+.title-row {
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:18px;
 }
-.heading-row {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
+h1 {font-size:26px;line-height:1.15;margin:0;letter-spacing:-.7px}
+.search-row {display:flex;gap:9px;margin-bottom:15px}
+.search {
+  flex:1;display:flex;align-items:center;gap:10px;
+  padding:0 13px;height:49px;border-radius:14px;
+  background:#171e2c;border:1px solid var(--line);
 }
-h1 {
-  font-size:30px;
-  line-height:1.12;
-  letter-spacing:-1px;
-  margin:0 0 21px;
+.search span {font-size:21px;color:#aeb8cc}
+.search input {
+  width:100%;border:0;outline:0;background:transparent;
+  color:white;font-size:13px;
 }
-.search-row {display:flex;gap:10px;margin-bottom:18px}
-.search-wrap {
-  flex:1;
-  display:flex;align-items:center;gap:10px;
-  background:#171e2e;
-  border:1px solid var(--line);
-  border-radius:15px;
-  padding:0 14px;
-  min-width:0;
-}
-.search-wrap span {font-size:20px;color:#aeb9ce}
-.search-wrap input {
-  width:100%;height:51px;
-  background:transparent;border:0;outline:0;
-  color:white;font-size:14px;
-}
-.search-wrap input::placeholder {color:#818ba2}
-.filter-btn {
-  width:53px;border-radius:15px;
-  border:1px solid var(--line);
-  color:#eaf1ff;background:#171e2e;
-  font-size:20px;
+.search input::placeholder {color:#858fa5}
+.filter {
+  width:49px;border-radius:14px;
+  border:1px solid var(--line);background:#171e2c;
+  color:#e8edfa;font-size:20px;
 }
 .categories {
-  display:flex;gap:9px;overflow-x:auto;
-  scrollbar-width:none;padding-bottom:5px;
-  margin-bottom:20px;
+  display:flex;gap:8px;overflow-x:auto;
+  scrollbar-width:none;margin-bottom:17px;padding-bottom:2px;
 }
 .categories::-webkit-scrollbar {display:none}
 .chip {
-  white-space:nowrap;border:1px solid transparent;
-  border-radius:30px;padding:11px 17px;
-  background:#171d2b;color:#aeb6c8;
-  font-size:13px;
+  flex-shrink:0;border:1px solid transparent;
+  border-radius:25px;padding:10px 15px;
+  color:#aeb7c9;background:#171d2a;font-size:12px;
 }
 .chip.active {
-  color:white;
-  background:linear-gradient(110deg,#238cf1,#7650ee);
-  box-shadow:0 5px 20px rgba(73,103,255,.22);
+  color:white;background:linear-gradient(110deg,#238df0,#8050ec);
+  box-shadow:0 4px 17px rgba(85,93,245,.2);
 }
-.hero {
-  min-height:190px;
-  position:relative;overflow:hidden;
-  border:1px solid rgba(183,198,255,.12);
-  border-radius:21px;
-  padding:25px 22px;
-  margin-bottom:29px;
+.banner {
+  height:166px;position:relative;overflow:hidden;
+  border:1px solid rgba(184,201,255,.12);
+  border-radius:18px;padding:20px;
+  margin-bottom:23px;
   background:
-    radial-gradient(ellipse at 85% 70%,rgba(99,74,190,.34),transparent 42%),
-    linear-gradient(120deg,#1a2437,#111725 65%,#17172c);
+    radial-gradient(ellipse at 84% 65%,rgba(110,67,209,.34),transparent 43%),
+    linear-gradient(115deg,#1b263a,#111827 70%,#201b36);
 }
-.hero:after {
-  content:"✦";
-  position:absolute;right:22px;top:13px;
-  font-size:120px;line-height:1;
-  color:rgba(111,159,255,.12);
-  text-shadow:0 0 45px rgba(85,130,255,.35);
+.banner-copy {position:relative;z-index:2;width:65%}
+.banner-label {
+  font-size:9px;letter-spacing:1.5px;
+  color:#a9b8d6;font-weight:700;
 }
-.hero-content {position:relative;z-index:1;max-width:70%}
-.hero small {
-  color:#9eafd1;letter-spacing:1.8px;
-  font-size:10px;font-weight:700;
+.banner h2 {
+  font-size:22px;line-height:1.15;
+  margin:10px 0 6px;letter-spacing:-.5px;
 }
-.hero h2 {
-  font-size:25px;line-height:1.15;
-  margin:13px 0 8px;letter-spacing:-.6px;
+.banner p {font-size:11px;color:#aeb9cd;margin:0 0 12px}
+.banner button {
+  border:0;border-radius:22px;padding:10px 15px;
+  color:white;font-size:11px;font-weight:650;
+  background:linear-gradient(100deg,#238df0,#8250ed);
 }
-.hero p {
-  color:#aab5ca;font-size:12px;line-height:1.5;
-  margin:0 0 16px;
+.banner-art {
+  position:absolute;right:8px;top:16px;
+  width:42%;height:135px;
+  display:grid;place-items:center;
 }
-.primary-btn {
-  border:0;border-radius:30px;padding:12px 18px;
-  color:white;font-weight:650;font-size:12px;
-  background:linear-gradient(105deg,#168eea,#8249e9);
-  box-shadow:0 5px 22px rgba(83,88,242,.25);
+.art-glow {
+  position:absolute;width:115px;height:115px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(83,122,244,.4),rgba(128,71,224,.13) 50%,transparent 72%);
+  filter:blur(4px);
 }
-.hero-orb {
-  position:absolute;right:-28px;bottom:-52px;
-  width:190px;height:190px;border-radius:50%;
-  background:radial-gradient(circle at 35% 30%,rgba(75,219,244,.25),rgba(103,73,207,.18) 35%,transparent 70%);
-  filter:blur(5px);
+.art-card {
+  position:relative;z-index:1;
+  width:88px;height:110px;border-radius:13px;
+  transform:rotate(8deg);
+  border:1px solid rgba(255,255,255,.2);
+  background:linear-gradient(145deg,#34486a,#182238 60%,#47336d);
+  box-shadow:0 15px 30px #080b14;
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:7px;
 }
+.art-card span {font-size:32px}
+.art-card small {font-size:8px;letter-spacing:1px;color:#dce7ff}
 .section-head {
   display:flex;justify-content:space-between;
-  align-items:center;margin:0 0 15px;
+  align-items:center;margin-bottom:13px;
 }
-.section-head h2 {font-size:18px;margin:0;letter-spacing:-.3px}
+.section-head h2 {font-size:17px;margin:0}
 .section-head button {
-  border:0;background:none;color:#9ba7bd;font-size:12px;
+  border:0;background:none;color:#9ca8bd;font-size:11px;
 }
-.product-grid {
+.grid {
   display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:13px;
+  gap:12px;
 }
 .product {
-  min-width:0;overflow:hidden;
-  border:1px solid var(--line);
-  border-radius:17px;
-  background:linear-gradient(145deg,#171f30,#101622);
-  box-shadow:0 10px 25px rgba(0,0,0,.12);
+  min-width:0;border:1px solid var(--line);
+  border-radius:15px;overflow:hidden;
+  background:linear-gradient(145deg,#171f2e,#101621);
 }
 .product-art {
-  height:133px;display:flex;align-items:center;
-  justify-content:center;position:relative;overflow:hidden;
-  background:
-    radial-gradient(ellipse at 50% 75%,var(--glow),transparent 65%),
-    linear-gradient(145deg,#1b263a,#111725);
+  height:125px;position:relative;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+  background:radial-gradient(ellipse at 50% 80%,var(--glow),transparent 65%),#151e2d;
 }
-.product-art .symbol {
-  font-size:58px;
-  filter:drop-shadow(0 12px 15px rgba(0,0,0,.4));
+.product-art:before {
+  content:"";position:absolute;width:100px;height:100px;
+  border:1px solid rgba(255,255,255,.07);border-radius:50%;
 }
-.product-art:after {
-  content:"";position:absolute;
-  width:120px;height:120px;border-radius:50%;
-  border:1px solid rgba(255,255,255,.06);
+.cover {
+  z-index:1;width:78px;height:94px;border-radius:7px;
+  padding:10px 7px;display:flex;flex-direction:column;
+  justify-content:space-between;
+  transform:rotate(-5deg);
+  background:linear-gradient(145deg,var(--cover1),var(--cover2));
+  border:1px solid rgba(255,255,255,.25);
+  box-shadow:0 12px 22px rgba(0,0,0,.4);
 }
-.product-info {padding:12px}
-.product h3 {font-size:14px;margin:0 0 6px}
+.cover strong {font-size:9px;line-height:1.25}
+.cover small {font-size:7px;opacity:.8;letter-spacing:.7px}
+.cover .cover-icon {font-size:23px;text-align:center}
+.product-info {padding:11px}
+.product h3 {font-size:13px;margin:0 0 5px}
 .product p {
-  font-size:11px;color:var(--muted);
-  margin:0 0 13px;line-height:1.4;
-  min-height:30px;
+  font-size:10px;line-height:1.4;color:var(--muted);
+  margin:0 0 12px;min-height:28px;
 }
 .product-bottom {
-  display:flex;justify-content:space-between;
-  align-items:center;gap:5px;
+  display:flex;align-items:center;justify-content:space-between;gap:5px;
 }
-.product-type {font-size:10px;color:#91d9ed}
-.add-btn {
-  border:1px solid rgba(151,169,255,.13);
-  border-radius:20px;padding:8px 11px;
-  background:linear-gradient(120deg,#202b42,#28213d);
-  color:#f4f4ff;font-size:11px;
+.price {font-size:12px;font-weight:750;color:#f1f3fa}
+.add {
+  border:1px solid rgba(160,174,255,.16);
+  border-radius:20px;padding:7px 10px;
+  color:#e7eaff;background:linear-gradient(110deg,#202c43,#2b2342);
+  font-size:10px;
 }
-.add-btn:active {transform:scale(.96)}
 .empty {
   grid-column:1/-1;text-align:center;
-  padding:35px 10px;color:var(--muted);
-  font-size:13px;
+  padding:35px 10px;color:var(--muted);font-size:13px;
 }
-.cart-bar {
-  position:fixed;z-index:5;
-  bottom:76px;left:50%;transform:translateX(-50%);
-  width:calc(100% - 30px);max-width:530px;
-  padding:10px 12px;border-radius:19px;
+.cart {
+  position:fixed;z-index:5;bottom:77px;left:50%;
+  transform:translateX(-50%);
+  width:calc(100% - 28px);max-width:490px;
+  border:1px solid rgba(185,201,255,.15);
+  border-radius:17px;padding:10px 12px;
+  background:rgba(26,34,51,.97);
   display:flex;align-items:center;justify-content:space-between;
-  gap:10px;background:rgba(27,34,52,.96);
-  border:1px solid rgba(186,203,255,.13);
-  box-shadow:0 12px 35px rgba(0,0,0,.4);
+  box-shadow:0 10px 30px rgba(0,0,0,.45);
   backdrop-filter:blur(18px);
 }
-.cart-info {display:flex;align-items:center;gap:9px}
+.cart[hidden] {display:none}
+.cart-left {display:flex;align-items:center;gap:9px}
 .cart-icon {
-  width:39px;height:39px;border-radius:50%;
-  display:grid;place-items:center;
-  background:#29334a;font-size:17px;
+  width:37px;height:37px;border-radius:50%;
+  background:#2b354c;display:grid;place-items:center;
 }
-.cart-count {font-size:12px;color:#c2cadd}
-.cart-total {font-size:14px;font-weight:750}
-.checkout-btn {
-  border:0;border-radius:25px;padding:12px 18px;
-  color:white;font-size:12px;font-weight:700;
-  background:linear-gradient(105deg,#168eea,#9846e9);
+.cart-label {font-size:11px;color:#aeb9cd}
+.cart-total {font-size:13px;font-weight:750;margin-top:3px}
+.checkout {
+  border:0;border-radius:24px;padding:11px 16px;
+  color:white;font-size:11px;font-weight:700;
+  background:linear-gradient(100deg,#218cf0,#9048ed);
 }
-.bottom-nav {
+.nav {
   position:fixed;z-index:6;bottom:0;left:50%;
   transform:translateX(-50%);
-  width:100%;max-width:560px;
-  padding:10px 8px calc(12px + env(safe-area-inset-bottom));
-  display:flex;justify-content:space-around;
-  background:rgba(13,17,28,.96);
+  width:100%;max-width:520px;
+  padding:9px 5px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(12,16,26,.97);
   border-top:1px solid var(--line);
-  backdrop-filter:blur(20px);
+  display:flex;justify-content:space-around;
+  backdrop-filter:blur(18px);
 }
-.nav-item {
-  flex:1;border:0;background:none;color:#8791a8;
+.nav button {
+  flex:1;border:0;background:none;color:#8993a9;
   display:flex;flex-direction:column;align-items:center;
-  gap:5px;font-size:10px;padding:3px;
+  gap:4px;font-size:10px;padding:3px;
 }
-.nav-item .nav-icon {font-size:21px;line-height:1.2}
-.nav-item.active {color:#a48aff}
-.nav-item.active .nav-icon {filter:drop-shadow(0 0 8px #9b68ff)}
+.nav .ico {font-size:20px}
+.nav button.active {color:#a88aff}
 .toast {
   position:fixed;z-index:10;top:18px;left:50%;
-  transform:translateX(-50%);
-  background:#222d42;color:white;
-  border:1px solid var(--line);border-radius:30px;
-  padding:11px 17px;font-size:12px;
-  opacity:0;pointer-events:none;transition:.2s;
+  transform:translateX(-50%);padding:10px 15px;
+  border-radius:25px;background:#26344d;color:white;
+  font-size:12px;opacity:0;transition:.2s;
+  pointer-events:none;white-space:nowrap;
 }
 .toast.show {opacity:1}
-@media(min-width:500px) {
-  .product-grid {grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:360px) {
+  main {padding-left:14px;padding-right:14px}
+  .banner {padding:16px;height:158px}
+  .banner h2 {font-size:20px}
+  .product-art {height:112px}
 }
 </style>
 </head>
 <body>
 <div class="app">
-  <header>
-    <div class="logo">MERC<span>A</span></div>
-    <div class="header-actions">
-      <button class="round-btn" aria-label="Wishlist" onclick="showToast('Your wishlist is coming soon')">♡</button>
-      <button class="round-btn" aria-label="Cart" onclick="showCart()">♧</button>
-    </div>
-  </header>
+<header>
+  <div class="logo">MERC<span>A</span></div>
+  <div class="actions">
+    <button class="circle" aria-label="Wishlist" onclick="notice('Wishlist coming soon')">♡</button>
+    <button class="circle" aria-label="Shopping bag" onclick="showCart()">♧</button>
+  </div>
+</header>
 
-  <main>
-    <div class="eyebrow">YOUR DIGITAL DESTINATION</div>
-    <div class="heading-row">
-      <h1>Discover<br>Premium Finds</h1>
-    </div>
+<main>
+  <div class="topline">Discover</div>
+  <div class="title-row"><h1>Premium Products</h1></div>
 
-    <div class="search-row">
-      <label class="search-wrap">
-        <span>⌕</span>
-        <input id="search" type="search" placeholder="Search digital products..." oninput="renderProducts()">
-      </label>
-      <button class="filter-btn" aria-label="Filter" onclick="showToast('More filters coming soon')">☷</button>
-    </div>
+  <div class="search-row">
+    <label class="search">
+      <span>⌕</span>
+      <input id="search" type="search" placeholder="Search products..." oninput="render()">
+    </label>
+    <button class="filter" onclick="notice('More filters coming soon')" aria-label="Filters">☷</button>
+  </div>
 
-    <div class="categories" id="categories">
-      <button class="chip active" data-category="All">All</button>
-      <button class="chip" data-category="E-books">E-books</button>
-      <button class="chip" data-category="Templates">Templates</button>
-      <button class="chip" data-category="Study">Study</button>
-      <button class="chip" data-category="Tools">Digital tools</button>
-    </div>
+  <div class="categories" id="categories">
+    <button class="chip active" data-cat="All">All</button>
+    <button class="chip" data-cat="E-books">E-books</button>
+    <button class="chip" data-cat="Templates">Templates</button>
+    <button class="chip" data-cat="Study">Study</button>
+    <button class="chip" data-cat="Tools">Digital tools</button>
+  </div>
 
-    <section class="hero">
-      <div class="hero-orb"></div>
-      <div class="hero-content">
-        <small>THE MERCA COLLECTION</small>
-        <h2>Something<br>worth discovering.</h2>
-        <p>Thoughtfully selected digital products for everyday life.</p>
-        <button class="primary-btn" onclick="document.getElementById('featured').scrollIntoView({behavior:'smooth'})">Explore collection&nbsp; →</button>
+  <section class="banner">
+    <div class="banner-copy">
+      <div class="banner-label">THE MERCA EDITION</div>
+      <h2>Discover a better way.</h2>
+      <p>Useful finds. Beautifully presented.</p>
+      <button onclick="document.getElementById('featured').scrollIntoView({behavior:'smooth'})">Explore now&nbsp; →</button>
+    </div>
+    <div class="banner-art">
+      <div class="art-glow"></div>
+      <div class="art-card">
+        <span>✦</span><small>MERCA SELECT</small>
       </div>
-    </section>
-
-    <div class="section-head" id="featured">
-      <h2>Featured collection</h2>
-      <button onclick="setCategory('All')">View all&nbsp; →</button>
     </div>
+  </section>
 
-    <div class="product-grid" id="products"></div>
-  </main>
+  <div class="section-head" id="featured">
+    <h2>Featured Products</h2>
+    <button onclick="choose('All')">View All&nbsp; →</button>
+  </div>
+
+  <div class="grid" id="products"></div>
+</main>
 </div>
 
-<div class="cart-bar" id="cartBar" hidden>
-  <div class="cart-info">
+<div class="cart" id="cart" hidden>
+  <div class="cart-left">
     <div class="cart-icon">🛍</div>
     <div>
-      <div class="cart-count" id="cartCount">0 items</div>
-      <div class="cart-total" id="cartTotal">Your bag</div>
+      <div class="cart-label" id="count">0 items</div>
+      <div class="cart-total">Your shopping bag</div>
     </div>
   </div>
-  <button class="checkout-btn" onclick="showToast('Checkout will be available when the store launches')">View bag&nbsp; →</button>
+  <button class="checkout" onclick="notice('Checkout will be added later')">View bag&nbsp; →</button>
 </div>
 
-<nav class="bottom-nav">
-  <button class="nav-item active" onclick="navTo('Home',this)"><span class="nav-icon">⌂</span>Home</button>
-  <button class="nav-item" onclick="navTo('Categories',this)"><span class="nav-icon">▦</span>Categories</button>
-  <button class="nav-item" onclick="navTo('Orders',this)"><span class="nav-icon">▤</span>Orders</button>
-  <button class="nav-item" onclick="navTo('Wishlist',this)"><span class="nav-icon">♡</span>Wishlist</button>
-  <button class="nav-item" onclick="navTo('Profile',this)"><span class="nav-icon">♙</span>Profile</button>
+<nav class="nav">
+  <button class="active" onclick="nav(this,'Home')"><span class="ico">⌂</span>Home</button>
+  <button onclick="nav(this,'Categories')"><span class="ico">▦</span>Categories</button>
+  <button onclick="nav(this,'Orders')"><span class="ico">▤</span>Orders</button>
+  <button onclick="nav(this,'Wishlist')"><span class="ico">♡</span>Wishlist</button>
+  <button onclick="nav(this,'Profile')"><span class="ico">♙</span>Profile</button>
 </nav>
-
 <div class="toast" id="toast"></div>
 
 <script>
-const products = [
-  {name:"The Everyday Guide",desc:"A practical digital reading guide",category:"E-books",icon:"📖",glow:"rgba(77,190,224,.28)"},
-  {name:"CV Design Collection",desc:"Clean and professional CV layouts",category:"Templates",icon:"📄",glow:"rgba(135,105,255,.3)"},
-  {name:"Creative Design Pack",desc:"Resources for your next project",category:"Templates",icon:"✦",glow:"rgba(66,159,245,.3)"},
-  {name:"Study Companion",desc:"Organised learning resources",category:"Study",icon:"🎓",glow:"rgba(66,202,190,.25)"},
-  {name:"Daily Planner",desc:"A calmer way to organise your day",category:"Tools",icon:"▤",glow:"rgba(153,113,255,.3)"},
-  {name:"Digital Toolkit",desc:"Useful tools in one collection",category:"Tools",icon:"◇",glow:"rgba(61,172,224,.3)"}
+const items=[
+ {name:"The Everyday Guide",desc:"A practical digital reading guide",cat:"E-books",icon:"✦",price:"Coming soon",c1:"#365b80",c2:"#17263d",glow:"rgba(61,169,226,.32)"},
+ {name:"CV Design Collection",desc:"Elegant professional CV layouts",cat:"Templates",icon:"▤",price:"Coming soon",c1:"#6c55a6",c2:"#252044",glow:"rgba(137,94,230,.34)"},
+ {name:"Creative Design Pack",desc:"Resources for creative projects",cat:"Templates",icon:"◇",price:"Coming soon",c1:"#276b83",c2:"#142a3a",glow:"rgba(64,203,219,.3)"},
+ {name:"Study Companion",desc:"A collection of learning resources",cat:"Study",icon:"✧",price:"Coming soon",c1:"#5c548f",c2:"#22203c",glow:"rgba(117,104,235,.3)"},
+ {name:"Daily Planner",desc:"Bring a little order to every day",cat:"Tools",icon:"▦",price:"Coming soon",c1:"#376c75",c2:"#192d38",glow:"rgba(70,200,190,.28)"},
+ {name:"Digital Toolkit",desc:"Useful tools in one collection",cat:"Tools",icon:"✥",price:"Coming soon",c1:"#536b9b",c2:"#1b2940",glow:"rgba(81,145,232,.3)"}
 ];
-let activeCategory="All";
-let cart=[];
-
-function renderProducts(){
-  const query=document.getElementById("search").value.toLowerCase();
-  const shown=products.filter(p=>
-    (activeCategory==="All"||p.category===activeCategory)&&
-    (p.name+" "+p.desc+" "+p.category).toLowerCase().includes(query)
-  );
-  const area=document.getElementById("products");
-  area.innerHTML="";
-  if(!shown.length){
-    area.innerHTML='<div class="empty">No matching products found.</div>';
-    return;
-  }
-  shown.forEach(p=>{
-    const card=document.createElement("article");
-    card.className="product";
-    card.innerHTML=`
-      <div class="product-art" style="--glow:${p.glow}">
-        <span class="symbol">${p.icon}</span>
-      </div>
-      <div class="product-info">
-        <h3>${p.name}</h3>
-        <p>${p.desc}</p>
-        <div class="product-bottom">
-          <span class="product-type">${p.category}</span>
-          <button class="add-btn">＋ Add</button>
-        </div>
-      </div>`;
-    card.querySelector("button").onclick=()=>addToCart(p);
-    area.appendChild(card);
-  });
+let category="All",bag=[];
+function render(){
+ const q=document.getElementById("search").value.toLowerCase();
+ const list=items.filter(p=>(category==="All"||p.cat===category)&&
+ (p.name+" "+p.desc+" "+p.cat).toLowerCase().includes(q));
+ const area=document.getElementById("products");
+ area.innerHTML="";
+ if(!list.length){area.innerHTML='<div class="empty">No products found.</div>';return}
+ list.forEach(p=>{
+  const card=document.createElement("article");
+  card.className="product";
+  card.innerHTML=`
+   <div class="product-art" style="--glow:${p.glow}">
+    <div class="cover" style="--cover1:${p.c1};--cover2:${p.c2}">
+     <small>MERCA SELECT</small><span class="cover-icon">${p.icon}</span><strong>${p.name}</strong>
+    </div>
+   </div>
+   <div class="product-info">
+    <h3>${p.name}</h3><p>${p.desc}</p>
+    <div class="product-bottom"><span class="price">${p.price}</span><button class="add">＋ Add</button></div>
+   </div>`;
+  card.querySelector(".add").onclick=()=>add(p);
+  area.appendChild(card);
+ });
 }
-function setCategory(category){
-  activeCategory=category;
-  document.querySelectorAll(".chip").forEach(b=>
-    b.classList.toggle("active",b.dataset.category===category)
-  );
-  renderProducts();
+function choose(c){
+ category=c;
+ document.querySelectorAll(".chip").forEach(b=>b.classList.toggle("active",b.dataset.cat===c));
+ render();
 }
 document.getElementById("categories").addEventListener("click",e=>{
-  const b=e.target.closest(".chip");
-  if(b)setCategory(b.dataset.category);
+ const b=e.target.closest(".chip");if(b)choose(b.dataset.cat);
 });
-function addToCart(product){
-  cart.push(product);
-  document.getElementById("cartBar").hidden=false;
-  document.getElementById("cartCount").textContent=cart.length+" item"+(cart.length===1?"":"s");
-  document.getElementById("cartTotal").textContent="Bag updated";
-  showToast(product.name+" added to your bag");
+function add(p){
+ bag.push(p);
+ document.getElementById("cart").hidden=false;
+ document.getElementById("count").textContent=bag.length+" item"+(bag.length===1?"":"s");
+ notice("Added to your shopping bag");
 }
 function showCart(){
-  if(!cart.length){showToast("Your bag is empty");return;}
-  showToast(cart.length+" item(s) in your bag");
+ notice(bag.length?bag.length+" item(s) in your bag":"Your shopping bag is empty");
 }
-function navTo(name,button){
-  document.querySelectorAll(".nav-item").forEach(b=>b.classList.remove("active"));
-  button.classList.add("active");
-  if(name==="Home"){window.scrollTo({top:0,behavior:"smooth"});return;}
-  if(name==="Categories"){document.getElementById("categories").scrollIntoView({behavior:"smooth"});return;}
-  showToast(name+" will be available when MERCA launches");
+function nav(btn,name){
+ document.querySelectorAll(".nav button").forEach(b=>b.classList.remove("active"));
+ btn.classList.add("active");
+ if(name==="Home"){window.scrollTo({top:0,behavior:"smooth"});return}
+ if(name==="Categories"){document.getElementById("categories").scrollIntoView({behavior:"smooth"});return}
+ notice(name+" will be available soon");
 }
-function showToast(message){
-  const toast=document.getElementById("toast");
-  toast.textContent=message;
-  toast.classList.add("show");
-  clearTimeout(window.toastTimer);
-  window.toastTimer=setTimeout(()=>toast.classList.remove("show"),2200);
+function notice(msg){
+ const t=document.getElementById("toast");
+ t.textContent=msg;t.classList.add("show");
+ clearTimeout(window.noticeTimer);
+ window.noticeTimer=setTimeout(()=>t.classList.remove("show"),2000);
 }
-renderProducts();
+render();
 </script>
 </body>
-  </html>
-  
+</html>
