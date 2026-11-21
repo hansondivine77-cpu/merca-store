@@ -1,54 +1,706 @@
 
-/* MERCA mobile banner fix */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#090c14">
+<title>MERCA — Premium Digital Store</title>
+
+<style>
+:root {
+  --bg:#090c14;
+  --panel:#171f2e;
+  --muted:#929db2;
+  --white:#f5f6fb;
+  --line:rgba(190,205,235,.12);
+}
+* {box-sizing:border-box}
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--white);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+button,input {font:inherit}
+button {cursor:pointer}
+.app {
+  max-width:520px;
+  min-height:100vh;
+  margin:auto;
+  padding-bottom:100px;
+  background:
+    radial-gradient(ellipse at 100% 0%,rgba(48,80,137,.13),transparent 35%),
+    var(--bg);
+}
+header {
+  padding:20px 19px 12px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.logo {
+  font-size:25px;
+  font-weight:850;
+  letter-spacing:2px;
+}
+.logo span {color:#50d9e8}
+.actions {display:flex;gap:10px}
+.circle {
+  width:43px;height:43px;
+  border-radius:50%;
+  border:1px solid var(--line);
+  background:#171e2c;
+  color:white;
+  font-size:21px;
+}
+main {padding:13px 18px 30px}
+.topline {
+  color:#a1abc0;
+  font-size:13px;
+  margin-bottom:5px;
+}
+h1 {
+  font-size:26px;
+  line-height:1.2;
+  margin:0 0 19px;
+  letter-spacing:-.6px;
+  font-weight:700;
+}
+.search-row {
+  display:flex;
+  gap:9px;
+  margin-bottom:16px;
+}
+.search {
+  flex:1;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  height:49px;
+  padding:0 14px;
+  border-radius:15px;
+  background:#171e2c;
+  border:1px solid var(--line);
+}
+.search span {font-size:22px;color:#aeb8cc}
+.search input {
+  width:100%;
+  border:0;
+  outline:0;
+  background:transparent;
+  color:white;
+  font-size:13px;
+}
+.search input::placeholder {color:#858fa5}
+.filter {
+  width:49px;
+  border-radius:15px;
+  border:1px solid var(--line);
+  background:#171e2c;
+  color:#e8edfa;
+  font-size:22px;
+}
+.categories {
+  display:flex;
+  gap:9px;
+  overflow-x:auto;
+  scrollbar-width:none;
+  margin-bottom:19px;
+  padding-bottom:2px;
+}
+.categories::-webkit-scrollbar {display:none}
+.chip {
+  flex-shrink:0;
+  border:1px solid transparent;
+  border-radius:25px;
+  padding:11px 17px;
+  color:#aeb7c9;
+  background:#171d2a;
+  font-size:13px;
+}
+.chip.active {
+  color:white;
+  background:linear-gradient(110deg,#238df0,#8050ec);
+  box-shadow:0 4px 17px rgba(85,93,245,.2);
+}
+
+/* Promotional banner */
 .banner {
-  height: 175px;
-  padding: 17px;
+  position:relative;
+  width:100%;
+  min-height:178px;
+  overflow:hidden;
+  border:1px solid rgba(184,201,255,.13);
+  border-radius:19px;
+  padding:19px 16px;
+  margin-bottom:27px;
+  background:
+    radial-gradient(ellipse at 85% 70%,rgba(110,67,209,.32),transparent 45%),
+    linear-gradient(115deg,#1b263a,#111827 70%,#201b36);
 }
-
 .banner-copy {
-  width: 59%;
-  max-width: 59%;
+  position:relative;
+  z-index:2;
+  width:62%;
+  max-width:62%;
 }
-
+.banner-label {
+  font-size:9px;
+  letter-spacing:1.6px;
+  color:#a9b8d6;
+  font-weight:700;
+}
 .banner h2 {
-  font-size: 18px;
-  line-height: 1.2;
-  overflow-wrap: break-word;
+  font-size:19px;
+  line-height:1.2;
+  margin:10px 0 7px;
+  letter-spacing:-.4px;
+  overflow-wrap:break-word;
 }
-
 .banner p {
-  font-size: 9px;
-  line-height: 1.4;
-  max-width: 100%;
+  font-size:10px;
+  line-height:1.5;
+  color:#aeb9cd;
+  margin:0 0 12px;
 }
-
-.banner-art {
-  right: 3px;
-  width: 34%;
-}
-
-.promo-object {
-  width: 76px;
-  height: 72px;
-  transform: rotate(-7deg);
-}
-
 .banner button {
-  padding: 8px 12px;
-  font-size: 10px;
+  border:0;
+  border-radius:24px;
+  padding:9px 13px;
+  color:white;
+  font-size:10px;
+  font-weight:650;
+  background:linear-gradient(100deg,#238df0,#8250ed);
+}
+.banner-art {
+  position:absolute;
+  right:5px;
+  top:15px;
+  width:32%;
+  height:140px;
+  display:grid;
+  place-items:center;
+}
+.art-glow {
+  position:absolute;
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(83,122,244,.4),rgba(128,71,224,.13) 50%,transparent 72%);
+  filter:blur(5px);
+}
+.promo-object {
+  position:relative;
+  z-index:1;
+  width:77px;
+  height:78px;
+  border-radius:16px;
+  transform:rotate(-8deg);
+  border:1px solid rgba(255,255,255,.23);
+  background:linear-gradient(145deg,#394d72,#19243b 65%,#514078);
+  box-shadow:0 17px 28px rgba(0,0,0,.5);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:5px;
+}
+.promo-object span {font-size:31px;color:#d7eaff}
+.promo-object small {
+  font-size:6px;
+  letter-spacing:1.3px;
+  color:#dce7ff;
 }
 
-@media (max-width: 380px) {
-  .banner-copy {
-    width: 62%;
-    max-width: 62%;
-  }
-
-  .banner h2 {
-    font-size: 16px;
-  }
-
-  .banner-art {
-    width: 31%;
-  }
+.section-head {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:15px;
 }
+.section-head h2 {
+  font-size:18px;
+  margin:0;
+  font-weight:650;
+}
+.section-head button {
+  border:0;
+  background:none;
+  color:#9ca8bd;
+  font-size:11px;
+}
+.grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+.product {
+  min-width:0;
+  border:1px solid var(--line);
+  border-radius:16px;
+  overflow:hidden;
+  background:linear-gradient(145deg,#171f2e,#101621);
+  box-shadow:0 9px 22px rgba(0,0,0,.15);
+}
+.product-art {
+  height:145px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse at 50% 85%,var(--glow),transparent 67%),
+    linear-gradient(145deg,#1b2639,#111725);
+}
+.product-art:before {
+  content:"";
+  position:absolute;
+  width:115px;height:115px;
+  border:1px solid rgba(255,255,255,.055);
+  border-radius:50%;
+}
+.product-art:after {
+  content:"";
+  position:absolute;
+  width:85px;height:85px;
+  border:1px solid rgba(255,255,255,.04);
+  border-radius:50%;
+}
+.visual {
+  position:relative;
+  z-index:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  filter:drop-shadow(0 13px 12px rgba(0,0,0,.4));
+}
+.digital-cover {
+  width:78px;height:100px;
+  border-radius:7px;
+  padding:10px 8px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  background:linear-gradient(145deg,var(--c1),var(--c2));
+  border:1px solid rgba(255,255,255,.28);
+  box-shadow:inset 0 0 15px rgba(255,255,255,.08);
+  transform:rotate(-5deg);
+}
+.digital-cover small {
+  font-size:6px;
+  letter-spacing:1px;
+  opacity:.8;
+}
+.digital-cover strong {
+  font-size:9px;
+  line-height:1.2;
+}
+.cover-symbol {
+  text-align:center;
+  font-size:27px;
+  color:#f3f4ff;
+}
+.device {
+  width:68px;height:91px;
+  border-radius:11px;
+  border:2px solid #53627d;
+  background:linear-gradient(145deg,#303f5b,#111827);
+  box-shadow:inset 0 0 12px rgba(0,0,0,.5),0 12px 22px rgba(0,0,0,.35);
+  transform:rotate(5deg);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:8px;
+}
+.device span {font-size:27px;color:#d8eaff}
+.device small {font-size:6px;color:#aebbd1;letter-spacing:1px}
+.art-sheet {
+  width:82px;height:96px;
+  border-radius:8px;
+  padding:10px;
+  background:linear-gradient(145deg,#344b69,#17263b);
+  border:1px solid rgba(255,255,255,.24);
+  box-shadow:0 13px 20px rgba(0,0,0,.4);
+  transform:rotate(-4deg);
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+}
+.art-sheet span {font-size:21px;color:#e2efff}
+.art-sheet i {
+  display:block;
+  height:3px;
+  border-radius:5px;
+  background:rgba(220,235,255,.55);
+}
+.art-sheet i:nth-child(3) {width:75%}
+.art-sheet i:nth-child(4) {width:55%}
+.product-info {padding:11px}
+.product h3 {font-size:13px;margin:0 0 5px}
+.product p {
+  font-size:10px;
+  line-height:1.4;
+  color:var(--muted);
+  margin:0 0 12px;
+  min-height:28px;
+}
+.product-bottom {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:5px;
+}
+.price {font-size:11px;font-weight:700;color:#dce4f7}
+.add {
+  border:1px solid rgba(160,174,255,.16);
+  border-radius:20px;
+  padding:7px 9px;
+  color:#e7eaff;
+  background:linear-gradient(110deg,#202c43,#2b2342);
+  font-size:10px;
+}
+.empty {
+  grid-column:1/-1;
+  text-align:center;
+  padding:35px 10px;
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* Shopping bag */
+.cart {
+  position:fixed;
+  z-index:5;
+  bottom:77px;
+  left:50%;
+  transform:translateX(-50%);
+  width:calc(100% - 28px);
+  max-width:490px;
+  border:1px solid rgba(185,201,255,.15);
+  border-radius:17px;
+  padding:10px 12px;
+  background:rgba(26,34,51,.97);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  box-shadow:0 10px 30px rgba(0,0,0,.45);
+  backdrop-filter:blur(18px);
+}
+.cart[hidden] {display:none}
+.cart-left {display:flex;align-items:center;gap:9px}
+.cart-icon {
+  width:37px;height:37px;
+  border-radius:50%;
+  background:#2b354c;
+  display:grid;
+  place-items:center;
+}
+.cart-label {font-size:11px;color:#aeb9cd}
+.cart-total {font-size:13px;font-weight:750;margin-top:3px}
+.checkout {
+  border:0;
+  border-radius:24px;
+  padding:11px 16px;
+  color:white;
+  font-size:11px;
+  font-weight:700;
+  background:linear-gradient(100deg,#218cf0,#9048ed);
+}
+
+/* Bottom navigation */
+.nav {
+  position:fixed;
+  z-index:6;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:100%;
+  max-width:520px;
+  padding:9px 5px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(12,16,26,.97);
+  border-top:1px solid var(--line);
+  display:flex;
+  justify-content:space-around;
+  backdrop-filter:blur(18px);
+}
+.nav button {
+  flex:1;
+  border:0;
+  background:none;
+  color:#8993a9;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:4px;
+  font-size:10px;
+  padding:3px;
+}
+.nav .ico {font-size:21px}
+.nav button.active {color:#a88aff}
+.toast {
+  position:fixed;
+  z-index:10;
+  top:18px;
+  left:50%;
+  transform:translateX(-50%);
+  padding:10px 15px;
+  border-radius:25px;
+  background:#26344d;
+  color:white;
+  font-size:12px;
+  opacity:0;
+  transition:.2s;
+  pointer-events:none;
+  white-space:nowrap;
+}
+.toast.show {opacity:1}
+
+@media(max-width:380px) {
+  main {padding-left:14px;padding-right:14px}
+  .banner {min-height:180px;padding:17px 13px}
+  .banner-copy {width:61%;max-width:61%}
+  .banner h2 {font-size:17px}
+  .banner-art {width:30%;right:3px}
+  .promo-object {width:68px;height:70px}
+  .product-art {height:130px}
+}
+</style>
+</head>
+
+<body>
+<div class="app">
+
+<header>
+  <div class="logo">MERC<span>A</span></div>
+  <div class="actions">
+    <button class="circle" aria-label="Wishlist" onclick="notice('Wishlist coming soon')">♡</button>
+    <button class="circle" aria-label="Shopping bag" onclick="showCart()">♧</button>
+  </div>
+</header>
+
+<main>
+  <div class="topline">Discover</div>
+  <h1>Premium Products</h1>
+
+  <div class="search-row">
+    <label class="search">
+      <span>⌕</span>
+      <input id="search" type="search" placeholder="Search products..." oninput="render()">
+    </label>
+    <button class="filter" onclick="notice('More filters coming soon')" aria-label="Filters">☷</button>
+  </div>
+
+  <div class="categories" id="categories">
+    <button class="chip active" data-cat="All">All</button>
+    <button class="chip" data-cat="E-books">E-books</button>
+    <button class="chip" data-cat="Templates">Templates</button>
+    <button class="chip" data-cat="Study">Study</button>
+    <button class="chip" data-cat="Tools">Digital tools</button>
+  </div>
+
+  <section class="banner">
+    <div class="banner-copy">
+      <div class="banner-label">THE MERCA EDITION</div>
+      <h2>Discover something special.</h2>
+      <p>Useful finds. Beautifully presented.</p>
+      <button onclick="document.getElementById('featured').scrollIntoView({behavior:'smooth'})">
+        Explore now →
+      </button>
+    </div>
+
+    <div class="banner-art">
+      <div class="art-glow"></div>
+      <div class="promo-object">
+        <span>✦</span>
+        <small>MERCA SELECT</small>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-head" id="featured">
+    <h2>Featured Products</h2>
+    <button onclick="choose('All')">View All →</button>
+  </div>
+
+  <div class="grid" id="products"></div>
+</main>
+</div>
+
+<div class="cart" id="cart" hidden>
+  <div class="cart-left">
+    <div class="cart-icon">🛍</div>
+    <div>
+      <div class="cart-label" id="count">0 items</div>
+      <div class="cart-total">Your shopping bag</div>
+    </div>
+  </div>
+  <button class="checkout" onclick="notice('Checkout will be added later')">
+    View bag →
+  </button>
+</div>
+
+<nav class="nav">
+  <button class="active" onclick="nav(this,'Home')"><span class="ico">⌂</span>Home</button>
+  <button onclick="nav(this,'Categories')"><span class="ico">▦</span>Categories</button>
+  <button onclick="nav(this,'Orders')"><span class="ico">▤</span>Orders</button>
+  <button onclick="nav(this,'Wishlist')"><span class="ico">♡</span>Wishlist</button>
+  <button onclick="nav(this,'Profile')"><span class="ico">♙</span>Profile</button>
+</nav>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const items = [
+ {
+  name:"The Everyday Guide",
+  desc:"A practical digital reading guide",
+  cat:"E-books",type:"cover",symbol:"✦",
+  c1:"#456b91",c2:"#17263d",
+  glow:"rgba(61,169,226,.32)"
+ },
+ {
+  name:"CV Design Collection",
+  desc:"Elegant professional CV layouts",
+  cat:"Templates",type:"sheet",symbol:"▤",
+  c1:"#6c55a6",c2:"#252044",
+  glow:"rgba(137,94,230,.34)"
+ },
+ {
+  name:"Creative Design Pack",
+  desc:"Resources for creative projects",
+  cat:"Templates",type:"device",symbol:"◇",
+  c1:"#276b83",c2:"#142a3a",
+  glow:"rgba(64,203,219,.3)"
+ },
+ {
+  name:"Study Companion",
+  desc:"A collection of learning resources",
+  cat:"Study",type:"cover",symbol:"✧",
+  c1:"#5c548f",c2:"#22203c",
+  glow:"rgba(117,104,235,.3)"
+ },
+ {
+  name:"Daily Planner",
+  desc:"Bring a little order to every day",
+  cat:"Tools",type:"sheet",symbol:"▦",
+  c1:"#376c75",c2:"#192d38",
+  glow:"rgba(70,200,190,.28)"
+ },
+ {
+  name:"Digital Toolkit",
+  desc:"Useful tools in one collection",
+  cat:"Tools",type:"device",symbol:"✥",
+  c1:"#536b9b",c2:"#1b2940",
+  glow:"rgba(81,145,232,.3)"
+ }
+];
+
+let category = "All";
+let bag = [];
+
+function artwork(p) {
+ if(p.type==="device") {
+  return `<div class="device"><span>${p.symbol}</span><small>MERCA</small></div>`;
+ }
+ if(p.type==="sheet") {
+  return `<div class="art-sheet"><span>${p.symbol}</span><i></i><i></i><i></i></div>`;
+ }
+ return `<div class="digital-cover" style="--c1:${p.c1};--c2:${p.c2}">
+  <small>MERCA SELECT</small>
+  <span class="cover-symbol">${p.symbol}</span>
+  <strong>${p.name}</strong>
+ </div>`;
+}
+
+function render() {
+ const q = document.getElementById("search").value.toLowerCase();
+ const list = items.filter(p =>
+  (category==="All" || p.cat===category) &&
+  (p.name+" "+p.desc+" "+p.cat).toLowerCase().includes(q)
+ );
+
+ const area = document.getElementById("products");
+ area.innerHTML = "";
+
+ if(!list.length) {
+  area.innerHTML='<div class="empty">No products found.</div>';
+  return;
+ }
+
+ list.forEach(p => {
+  const card = document.createElement("article");
+  card.className = "product";
+
+  card.innerHTML = `
+   <div class="product-art" style="--glow:${p.glow}">
+    <div class="visual">${artwork(p)}</div>
+   </div>
+   <div class="product-info">
+    <h3>${p.name}</h3>
+    <p>${p.desc}</p>
+    <div class="product-bottom">
+     <span class="price">Coming soon</span>
+     <button class="add">＋ Add</button>
+    </div>
+   </div>`;
+
+  card.querySelector(".add").onclick = () => add(p);
+  area.appendChild(card);
+ });
+}
+
+function choose(c) {
+ category = c;
+ document.querySelectorAll(".chip").forEach(b =>
+  b.classList.toggle("active",b.dataset.cat===c)
+ );
+ render();
+}
+
+document.getElementById("categories").addEventListener("click",e => {
+ const b = e.target.closest(".chip");
+ if(b) choose(b.dataset.cat);
+});
+
+function add(p) {
+ bag.push(p);
+ document.getElementById("cart").hidden = false;
+ document.getElementById("count").textContent =
+  bag.length+" item"+(bag.length===1?"":"s");
+ notice("Added to your shopping bag");
+}
+
+function showCart() {
+ notice(bag.length ? bag.length+" item(s) in your bag" : "Your shopping bag is empty");
+}
+
+function nav(btn,name) {
+ document.querySelectorAll(".nav button").forEach(b => b.classList.remove("active"));
+ btn.classList.add("active");
+
+ if(name==="Home") {
+  window.scrollTo({top:0,behavior:"smooth"});
+  return;
+ }
+ if(name==="Categories") {
+  document.getElementById("categories").scrollIntoView({behavior:"smooth"});
+  return;
+ }
+ notice(name+" will be available soon");
+}
+
+function notice(msg) {
+ const t = document.getElementById("toast");
+ t.textContent = msg;
+ t.classList.add("show");
+ clearTimeout(window.noticeTimer);
+ window.noticeTimer = setTimeout(() => t.classList.remove("show"),2000);
+}
+
+render();
+</script>
+</body>
+</html>
